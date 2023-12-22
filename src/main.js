@@ -1,6 +1,7 @@
 require('dotenv/config');
 const { Client, GatewayIntentBits } = require('discord.js');
 const { CommandKit } = require('commandkit');
+const mongoose = require('mongoose');
 
 const client = new Client({
   intents: [
@@ -20,4 +21,9 @@ new CommandKit({
   bulkRegister: true,
 });
 
-client.login(process.env.TOKEN);
+(async () => {
+  await mongoose.connect(process.env.MONGODB_URI);
+  console.log('Connected to database.')
+
+  client.login(process.env.TOKEN);
+})();
