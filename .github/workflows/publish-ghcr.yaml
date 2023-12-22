@@ -9,8 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Build and push the Image
+      - name: Login to GHCR
         run: |
           docker login --username joanferrecid098 --password ${{ secrets.GHCR_TOKEN }} ghcr.io
+      - name: Build Image
+        run: |
           docker build -t ghcr.io/joanferrecid098/pitolandia-bot:latest .
+      - name: Push Image to GHCR
+        run: |
           docker push ghcr.io/joanferrecid098/pitolandia-bot:latest
