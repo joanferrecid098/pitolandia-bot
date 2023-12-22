@@ -1,0 +1,17 @@
+{
+  "name": "pitolandia-bot",
+  "version": "1.0.0",
+  "main": "src/main.js",
+  "repository": "git@github.com:joanferrecid098/pitolandia-bot.git",
+  "author": "joanferrecid098",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/main.js",
+    "dev": "npx nodemon src/main.js"
+  },
+  "dependencies": {
+    "commandkit": "^0.1.10",
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.3.1"
+  }
+}
