@@ -1,5 +1,6 @@
 require('dotenv/config');
 const { Client, GatewayIntentBits } = require('discord.js');
+const { CommandKit } = require('commandkit');
 
 const client = new Client({
   intents: [
@@ -7,11 +8,16 @@ const client = new Client({
     GatewayIntentBits.GuildMembers,
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.MessageContent,
-  ]
+  ],
 });
 
-client.on('ready', (client) => {
-  console.log(`${client.user.username} is online.`);
+new CommandKit({
+  client,
+  devGuildIds: ['802135977258123284'],
+  devUserIds: ['655403894981263362'],
+  eventsPath: `${__dirname}/events`,
+  commandsPath: `${__dirname}/commands`,
+  bulkRegister: true,
 });
 
 client.login(process.env.TOKEN);
