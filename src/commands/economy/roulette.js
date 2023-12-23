@@ -32,5 +32,7 @@ module.exports = {
 
     showColor(30)
   },
-  
+  options: {
+    deleted: true,
+  }
 }
